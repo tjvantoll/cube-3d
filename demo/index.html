@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>3d-cube demo</title>
+	<link rel="stylesheet" href="../cube-3d.css">
+
+	<!--<script src="../bower_components/CustomElements/custom-elements.js"></script>-->
+	<script src="../bower_components/document-register-element/build/document-register-element.js"></script>
+	<script src="../cube-3d.js"></script>
+
+	<style>
+		div.size-container { margin: 10px 0 50px 0; }
+		cube-base > * {
+			border: 2px solid black;
+		}
+
+		cube-front { background: green; color: white; }
+		cube-back { background: yellow; }
+		cube-top { background: blue; color: white; }
+		cube-bottom { background: pink; }
+		cube-left { background: orange; }
+		cube-right { background: black; color: white; }
+	</style>
+</head>
+<body>
+
+<div>
+	Side:
+	<input type="radio" name="face" id="front" checked>
+	<label for="front">Front</label>
+	<input type="radio" name="face" id="back">
+	<label for="back">Back</label>
+	<input type="radio" name="face" id="top">
+	<label for="top">Top</label>
+	<input type="radio" name="face" id="bottom">
+	<label for="bottom">Bottom</label>
+	<input type="radio" name="face" id="left">
+	<label for="left">Left</label>
+	<input type="radio" name="face" id="right">
+	<label for="right">Right</label>
+</div>
+
+<div class="size-container">
+	<label for="size">Size:</label>
+	<input type="number" id="size" value="100" step="50" min="50">
+</div>
+
+<cube-3d id="colors">
+	<cube-front>front</cube-front>
+	<cube-back>back</cube-back>
+	<cube-top>top</cube-top>
+	<cube-bottom>bottom</cube-bottom>
+	<cube-left>left</cube-left>
+	<cube-right>right</cube-right>
+</cube-3d>
+
+<script>
+	(function() {
+		var radios = document.querySelectorAll( "input[type=radio]" ),
+			size = document.querySelector( "input[type=number]" ),
+			cube = document.querySelector( "cube-3d" );
+
+		for ( var i = 0; i < radios.length; i++ ) {
+			radios[ i ].addEventListener( "change", function() {
+				cube.setAttribute( "face", this.id );
+			});
+		}
+
+		size.addEventListener( "change", function() {
+			cube.setAttribute( "size", this.value );
+		});
+	}());
+</script>
+
+</body>
+</html>

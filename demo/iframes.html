@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>3d-Cube iframe demo</title>
+	<link rel="stylesheet" href="../cube-3d.css">
+
+	<!--<script src="../bower_components/CustomElements/custom-elements.js"></script>-->
+	<script src="../bower_components/document-register-element/build/document-register-element.js"></script>
+	<script src="../cube-3d.js"></script>
+
+	<style>
+		cube-base > * {
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+
+<div>
+	Side:
+	<input type="radio" name="face" id="front" checked>
+	<label for="front">Front</label>
+	<input type="radio" name="face" id="back">
+	<label for="back">Back</label>
+	<input type="radio" name="face" id="top">
+	<label for="top">Top</label>
+	<input type="radio" name="face" id="bottom">
+	<label for="bottom">Bottom</label>
+	<input type="radio" name="face" id="left">
+	<label for="left">Left</label>
+	<input type="radio" name="face" id="right">
+	<label for="right">Right</label>
+</div>
+
+<cube-3d size="500">
+	<cube-front>
+		<iframe height="500" width="500" src="http://telerik.com"></iframe>
+	</cube-front>
+	<cube-bottom>
+		<iframe height="500" width="500" src="http://telerik.com/platform"></iframe>
+	</cube-bottom>
+	<cube-left>
+		<iframe height="500" width="500" src="http://telerik.com/kendo-ui"></iframe>
+	</cube-left>
+	<cube-back>
+		<iframe height="500" width="500" src="http://jquery.com"></iframe>
+	</cube-back>
+	<cube-top>
+		<iframe height="500" width="500" src="http://jqueryui.com"></iframe>
+	</cube-top>
+	<cube-right>
+		<iframe height="500" width="500" src="http://tjvantoll.com"></iframe>
+	</cube-right>
+</cube-3d>
+
+<script>
+	(function() {
+		var radios = document.querySelectorAll( "input[type=radio]" ),
+			cube = document.querySelector( "cube-3d" );
+
+		for ( var i = 0; i < radios.length; i++ ) {
+			radios[ i ].addEventListener( "change", function() {
+				cube.setAttribute( "face", this.id );
+			});
+		}
+	}());
+</script>
+
+</body>
+</html>

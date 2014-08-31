@@ -1,0 +1,22 @@
+{
+  "name": "cube-3d",
+  "main": "cube-3d.js",
+  "version": "0.1.1",
+  "homepage": "https://github.com/tjvantoll/cube-3d",
+  "authors": [
+    "TJ VanToll <tj.vantoll@gmail.com>"
+  ],
+  "description": "A web component for building 3D cubes",
+  "license": "MIT",
+  "dependencies": {
+    "document-register-element": "WebReflection/document-register-element"
+  },
+  "keywords": [
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
