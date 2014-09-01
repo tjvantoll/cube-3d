@@ -43,8 +43,11 @@
 </div>
 
 <div class="size-container">
-	<label for="size">Size:</label>
-	<input type="number" id="size" value="100" step="50" min="50">
+	<label for="height">Height:</label>
+	<input type="number" id="height" value="100" step="50" min="50">
+
+	<label for="width">Width:</label>
+	<input type="number" id="width" value="100" step="50" min="50">
 </div>
 
 <cube-3d id="colors">
@@ -59,7 +62,8 @@
 <script>
 	(function() {
 		var radios = document.querySelectorAll( "input[type=radio]" ),
-			size = document.querySelector( "input[type=number]" ),
+			height = document.querySelector( "#height" ),
+			width = document.querySelector( "#width" ),
 			cube = document.querySelector( "cube-3d" );
 
 		for ( var i = 0; i < radios.length; i++ ) {
@@ -68,8 +72,11 @@
 			});
 		}
 
-		size.addEventListener( "change", function() {
-			cube.setAttribute( "size", this.value );
+		height.addEventListener( "change", function() {
+			cube.setAttribute( "height", this.value );
+		});
+		width.addEventListener( "change", function() {
+			cube.setAttribute( "width", this.value );
 		});
 	}());
 </script>
